@@ -17,7 +17,7 @@ Create a container with an ID.
 <div id="zotero"></div>
 ```
 
-Call the `init()` function of the `ViFEZotero` client, when the page finished loading. The parameters for the `init()` function are: 1st Zotero API URL of the library and 2nd the ID of the container. The client expects the items chronological order, by now.
+Call the `init()` function of the `ViFEZotero` client, when the page finished loading. The parameters for the `init()` function are: 1st Zotero API URL of the library and 2nd the ID of the container. The client expects the items in chronological order, by now.
 
 ```html
 <script type="text/javascript">
