@@ -1,0 +1,26 @@
+.zoteroYearSep {
+    background-color: lightgray;
+    border-radius: 3px;
+    padding: 3px 10px 2px;
+    text-align: right;
+    margin: 10px 0;
+}
+
+span.zoteroYearCount {
+    font-size: 0.93em;
+}
+
+.zoteroItem {
+    margin: 10px 0;
+}
+
+.zoteroItem a {
+    font-size: 0.9em;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+span.zoteroExternalLink {
+    font-size: 0.75em;
+}
