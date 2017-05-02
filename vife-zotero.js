@@ -1,6 +1,6 @@
 ViFEZotero = (function () {
 
-    retrieveZoteroBib: function(url, containerId) {
+    function retrieveZoteroBib(url, containerId) {
         var oReq = new XMLHttpRequest();
         oReq.onreadystatechange = function () { 
           if (oReq.readyState != 4 || oReq.status != 200)
@@ -11,9 +11,9 @@ ViFEZotero = (function () {
         };
         oReq.open("GET", url);
         oReq.send();
-    };
+    }
     
-    parseLib: function(lib, containerId) {
+    function parseLib(lib, containerId) {
         var cont = document.getElementById(containerId);
         //remove Loader
         cont.innerHTML = "";
@@ -36,16 +36,16 @@ ViFEZotero = (function () {
             div.innerHTML = entry;
             cont.appendChild(div);
         });
-    };
+    }
     
-    createYearSeperator: function(year, count) {
+    function createYearSeperator(year, count) {
         var div = document.createElement('div');
         div.setAttribute('class', 'zoteroYearSep');
         div.innerHTML = '<i>' + year + '</i> <span class="zoteroYearCount">(' + count + ')';
         return div;
-    };
+    }
     
-    getItemsPerYear: function(lib, year) {
+    function getItemsPerYear(lib, year) {
         
         var count = 0;
         lib.forEach(function(item) {
@@ -55,9 +55,9 @@ ViFEZotero = (function () {
         });
         
         return count;
-    };
+    }
     
-    parseItem: function(item) {
+    function parseItem(item) {
         
         var returnString = "";
         
@@ -94,16 +94,16 @@ ViFEZotero = (function () {
         returnString = returnString + ' <a href="' + item.links.alternate.href + '" target="_blank">(Zotero&nbsp;<span class="zoteroExternalLink">&#8599;</span>)</a>';
         
         return returnString;
-    };
+    }
     
-    parseTitle: function(item) {
+    function parseTitle(item) {
         if(item.data.title)
             return "<b>" + item.data.title + ".</b>";
         
         return "";
-    };
+    }
     
-    parseAuthors: function(item) {
+    function parseAuthors(item) {
     
         var ret = "";
         if(item.data.creators.length > 0) {
@@ -123,78 +123,76 @@ ViFEZotero = (function () {
         }
         
         return ret;
-    };
+    }
     
-    parseBookTitle: function(item) {
+    function parseBookTitle(item) {
         if(item.data.bookTitle)
             return " In <i>" + item.data.bookTitle + ".</i>";
         
         return "";
-    };
+    }
     
-    parsePages: function(item) {
+    function parsePages(item) {
         if(item.data.pages)
             return " Seiten " + item.data.pages + ".";
         
         return "";
-    };
+    }
     
-    parsePublisher: function(item) {
+    function parsePublisher(item) {
         if(item.data.publisher)
             return " " + item.data.publisher + ",";
         
         return "";
-    };
+    }
     
-    parsePublicationTitle: function(item) {
+    function parsePublicationTitle(item) {
         if(item.data.publicationTitle)
             return " <i>" + item.data.publicationTitle + "</i>,";
         
         return "";
-    };
+    }
     
-    parseVolumeIssue: function(item) {
+    function parseVolumeIssue(item) {
         if(item.data.volume)
             return " " + item.data.volume + parseIssue(item) + ".";
         
         return "";
-    };
+    }
     
-    parseIssue: function(item) {
+    function parseIssue(item) {
         if(item.data.issue)
             return "(" + item.data.issue + ")";
         
         return "";
-    };
+    }
     
-    parseMeetingName: function(item) {
+    function parseMeetingName(item) {
         if(item.data.meetingName)
             return " Vorgetragen bei: " + item.data.meetingName + ".";
         
         return "";
-    };
+    }
     
-    parsePlace: function(item) {
+    function parsePlace(item) {
         if(item.data.place)
             return " " + item.data.place + ",";
         
         return "";
-    };
+    }
     
-    parseDate: function(item) {
+    function parseDate(item) {
         if(item.data.date)
             // Todo: verschiedene Formate parsen
             return " " + item.data.date + ".";
         
         return "";
-    };
+    }
 
     return {
-        init: function (url) {
+        init: function (url, containerId) {
             retrieveZoteroBib(url, containerId);
         }
     };
 
 })();
-
-ViFEZotero.init("https://api.zotero.org/groups/304071/items?v=3&format=json&tag=zenmem&sort=date", "zotero");
