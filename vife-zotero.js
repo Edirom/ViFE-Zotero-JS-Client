@@ -67,21 +67,21 @@ ViFEZotero = (function () {
         }else if(itemType == "book") {
             returnString = 'Item type "' + itemType + '" not supported, yet.';
         }else if(itemType == "bookSection") {
-            returnString = parseTitle(item);
             returnString = returnString + parseAuthors(item);
+            returnString = returnString + parseTitle(item);
             returnString = returnString + parseBookTitle(item);
-            returnString = returnString + parsePages(item);
             returnString = returnString + parsePublisher(item);
             returnString = returnString + parsePlace(item);
             returnString = returnString + parseDate(item);
+            returnString = returnString + parsePages(item);
         }else if(itemType == "journalArticle") {
-            returnString = parseTitle(item);
             returnString = returnString + parseAuthors(item);
+            returnString = returnString + parseTitle(item);
             returnString = returnString + parseBookTitle(item);
             returnString = returnString + parsePublicationTitle(item);
             returnString = returnString + parseVolumeIssue(item);
-            returnString = returnString + parsePages(item);
             returnString = returnString + parseDate(item);
+            returnString = returnString + parsePages(item);
         }else if(itemType == "magazineArticle") {
             returnString = 'Item type "' + itemType + '" not supported, yet.';
         }else if(itemType == "newspaperArticle") {
@@ -125,8 +125,8 @@ ViFEZotero = (function () {
         }else if(itemType == "audioRecording") {
             returnString = 'Item type "' + itemType + '" not supported, yet.';
         }else if(itemType == "presentation") {
-            returnString = parseTitle(item);
             returnString = returnString + parseAuthors(item);
+            returnString = returnString + parseTitle(item);
             returnString = returnString + parseMeetingName(item);
             returnString = returnString + parsePlace(item);
             returnString = returnString + parseDate(item);
@@ -168,16 +168,27 @@ ViFEZotero = (function () {
     
         var ret = "";
         if(item.data.creators.length > 0) {
+          
+          var creators = [];
+          
           for(var i = 0; i < item.data.creators.length; i++) {
-            var creator = item.data.creators[i];
-            if(i == 0)
-              ret = " ";
-            else if(i == item.data.creators.length - 1)
+            if(creator.creatorType = "author")
+                creators.push(item.data.creators[i]);
+            
+          }
+
+         for(var i = 0; i < creators.length; i++) {
+            var creator = creators[i];
+            
+            if(i == item.data.creators.length - 1)
               ret = ret + " und ";
             else if(i > 0)
               ret = ret + ", ";
-            if(creator.creatorType = "author")
-              ret = ret + creator.firstName + " " + creator.lastName;
+            
+            if(i == 0)
+                ret = ret + creator.lastName + ", " + creator.firstName;
+            else
+                ret = ret + creator.firstName + " " + creator.lastName;
           }
           
           ret = ret + ".";
