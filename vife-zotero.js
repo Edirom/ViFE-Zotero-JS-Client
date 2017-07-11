@@ -62,7 +62,11 @@ ViFEZotero = (function () {
         var returnString = "";
         
         var itemType = item.data.itemType;
-        if(itemType == "bookSection") {
+        if(itemType == "note") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "book") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "bookSection") {
             returnString = parseTitle(item);
             returnString = returnString + parseAuthors(item);
             returnString = returnString + parseBookTitle(item);
@@ -70,14 +74,6 @@ ViFEZotero = (function () {
             returnString = returnString + parsePublisher(item);
             returnString = returnString + parsePlace(item);
             returnString = returnString + parseDate(item);
-            
-        }else if(itemType == "presentation") {
-            returnString = parseTitle(item);
-            returnString = returnString + parseAuthors(item);
-            returnString = returnString + parseMeetingName(item);
-            returnString = returnString + parsePlace(item);
-            returnString = returnString + parseDate(item);
-            
         }else if(itemType == "journalArticle") {
             returnString = parseTitle(item);
             returnString = returnString + parseAuthors(item);
@@ -86,7 +82,72 @@ ViFEZotero = (function () {
             returnString = returnString + parseVolumeIssue(item);
             returnString = returnString + parsePages(item);
             returnString = returnString + parseDate(item);
-        
+        }else if(itemType == "magazineArticle") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "newspaperArticle") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "thesis") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "letter") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "manuscript") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "interview") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "film") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "artwork") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "webPage") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "report") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "bill") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "case") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "hearing") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "patent") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "statute") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "eMail") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "map") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "blogPost") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "instantMessage") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "forumPost") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "audioRecording") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "presentation") {
+            returnString = parseTitle(item);
+            returnString = returnString + parseAuthors(item);
+            returnString = returnString + parseMeetingName(item);
+            returnString = returnString + parsePlace(item);
+            returnString = returnString + parseDate(item);
+        }else if(itemType == "videoRecording") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "tvBroadcast") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "radioBroadcast") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "podcast") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "computerProgram") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "conferencePaper") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "document") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "encyclopediaArticle") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
+        }else if(itemType == "dictionaryArticle") {
+            returnString = 'Item type "' + itemType + '" not supported, yet.';
         }else {
             returnString = 'Item type "' + itemType + '" not supported, yet.';
         }    
