@@ -172,7 +172,7 @@ ViFEZotero = (function () {
           var creators = [];
           
           for(var i = 0; i < item.data.creators.length; i++) {
-            if(creator.creatorType = "author")
+            if(item.data.creators[i].creatorType = "author")
                 creators.push(item.data.creators[i]);
             
           }
