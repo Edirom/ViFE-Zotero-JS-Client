@@ -180,7 +180,9 @@ ViFEZotero = (function () {
          for(var i = 0; i < creators.length; i++) {
             var creator = creators[i];
             
-            if(i == item.data.creators.length - 1)
+            if(i == 0)
+                ;
+            else if(i == item.data.creators.length - 1)
               ret = ret + " und ";
             else if(i > 0)
               ret = ret + ", ";
@@ -191,7 +193,7 @@ ViFEZotero = (function () {
                 ret = ret + creator.firstName + " " + creator.lastName;
           }
           
-          ret = ret + ".";
+          ret = ret + ". ";
         }
         
         return ret;
